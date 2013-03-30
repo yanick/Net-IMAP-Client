@@ -1,0 +1,28 @@
+--- #YAML:1.0
+name:               Net-IMAP-Client
+version:            0.9501
+abstract:           Not so simple IMAP client library
+author:
+    - Mihai Bazon <mihai.bazon@gmail.com>
+license:            unknown
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+build_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    Encode:               0
+    Encode::MIME::Header:  0
+    IO::Socket::INET:     0
+    IO::Socket::SSL:      0
+    List::MoreUtils:      0
+    List::Util:           0
+    Test::More:           0
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.56
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
