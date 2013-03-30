@@ -26,6 +26,7 @@ my %DEFAULT_ARGS = (
     ssl      => 0,
     socket   => undef,
     _cmd_id  => 0,
+    ssl_options => {},
 );
 
 sub new {
@@ -622,6 +623,7 @@ sub _get_server {
 sub _get_socket {
     my ($self) = @_;
     my $socket = $self->{socket} ||= ($self->{ssl} ? 'IO::Socket::SSL' : 'IO::Socket::INET')->new(
+	( ( %{$self->{ssl_options}} ) x !!$self->{ssl} ), 
         PeerAddr => $self->_get_server,
         PeerPort => $self->_get_port,
         Timeout  => $self->_get_timeout,
@@ -1170,6 +1172,10 @@ Password
 =item - B<ssl> (BOOL, optional, default FALSE)
 
 Pass a true value if you want to use IO::Socket::SSL
+
+=item - B<ssl_options> (HASHREF, optional)
+
+Optional arguments to be passed to the L<IO::Socket::SSL> object.
 
 =item - B<uid_mode> (BOOL, optional, default TRUE)
 
